@@ -370,7 +370,7 @@ body.newly-ancient #branding h1 a {
 #stories li.story.story1 div.info h3 a:hover, #stories li.story.story1 div.info a.action:hover  {
 	background:#7A3B79;
 }
-#stories li.story.story1 div.info h3 a:hover, #stories li.story.story1 div.info a.action:hover  {
+#stories li.story.story2 div.info h3 a:hover, #stories li.story.story2 div.info a.action:hover  {
 	background:#21588F;
 }
 #stories li.story.story3 div.info h3 a:hover, #stories li.story.story3 div.info a.action:hover  {
@@ -417,16 +417,16 @@ body.newly-ancient #branding h1 a {
 #stories-nav li.story1.active a {
 	background:#7A3B79;
 }
-#stories-nav li.story1 a:hover {
+#stories-nav li.story2 a:hover {
 	background:#173E64;
 }
-#stories-nav li.story1.active a {
+#stories-nav li.story2.active a {
 	background:#21588F;
 }
-#stories-nav li.story1 a:hover {
+#stories-nav li.story3 a:hover {
 	background:#336B32;
 }
-#stories-nav li.story1.active a {
+#stories-nav li.story3.active a {
 	background:#499948;
 }
 /* *** Sidebar *** */
