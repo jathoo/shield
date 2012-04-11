@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="theme" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemas.habariproject.org/pluggable/0.8">
+	<name>Shielded</name>
+	<class>Shielded</class>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://morgante.net/">Morgante Pell</author>
+	<author url="http://habariproject.org/">Habari Community</author>
+	
+	<version>0.1</version>
+	<url>http://lab.morgante.net/shielded</url>
+	<description><![CDATA[Shielded is a grid-based theme designed specifically for Habari.]]></description>
+
+	<copyright>2012</copyright>
+	
+	<template_engine>rawphpengine</template_engine>
+	
+	<areas>
+		<area name="sidebar">
+			<description><![CDATA[The sidebar area]]></description>
+		</area>
+		<area name="stories">
+			<description><![CDATA[Story handler in header]]></description>
+		</area>
+	</areas>
+	
+</pluggable>
