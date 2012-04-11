@@ -1,6 +1,6 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die( 'No direct access' ); } 
 
-class Shielded extends Theme
+class Shield extends Theme
 {
 	var $defaults = array(
 		'show_9rules_badge' => false,
@@ -26,7 +26,7 @@ class Shielded extends Theme
 	{
 		$ui = new FormUI( __CLASS__ );
 	
-		$ui->append( 'static', 'style', '<style type="text/css">#shielded .formcontrol { line-height: 2.2em; }</style>');
+		$ui->append( 'static', 'style', '<style type="text/css">#shield .formcontrol { line-height: 2.2em; }</style>');
 	
 		$ui->append( 'select', 'background_image', __CLASS__.'__background_image', _t( 'Background Image:'), 'optionscontrol_select', 'optionscontrol_select' );
 		$ui->background_image->options = array(
@@ -441,7 +441,7 @@ class Shielded extends Theme
 		// $form is already assigned to a FormUI instance
 		$form->append( 'text', 'story_url', $block, _t( 'URL' ) );
 		$form->append( 'text', 'story_image', $block, _t( 'Background Image URL' ) );
-		$form->append( 'textarea', 'story_text', $block, _t( 'Story Text', 'shielded' ) );
+		$form->append( 'textarea', 'story_text', $block, _t( 'Story Text', 'shield' ) );
 		// No need to append a submit button as there is always a default form
 		// No need to return values from an action hook
 	}
@@ -465,7 +465,7 @@ class Shielded extends Theme
 	{
 		// $form is already assigned to a FormUI instance
 		$form->append( 'text', 'promo_url', $block, _t( 'URL' ) );
-		$form->append( 'textarea', 'promo_text', $block, _t( 'Promo Text', 'shielded' ) );
+		$form->append( 'textarea', 'promo_text', $block, _t( 'Promo Text', 'shield' ) );
 		// No need to append a submit button as there is always a default form
 		// No need to return values from an action hook
 	}
