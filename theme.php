@@ -141,6 +141,8 @@ class Shield extends Theme
 		$this->assign( 'show_9rules_badge', $opts['show_9rules_badge'] );
 		$this->assign( 'background_image', $opts['background_image'] );
 		
+		$this->assign( 'loggedin', User::identify()->loggedin );
+		
 		$story_blocks = $this->get_blocks( 'stories', 0, $this );
 		$stories = array();
 		$i = 0;
@@ -154,8 +156,6 @@ class Shield extends Theme
 		// Use theme options to set values that can be used directly in the templates
 		$opts = Options::get_group( __CLASS__ );
 		
-		$this->assign( 'show_post_nav', $opts['show_post_nav'] );
-		$this->assign( 'loggedin', User::identify()->loggedin );
 		
 		$locale = Options::get( 'locale' );
 		if ( file_exists( Site::get_dir( 'theme', true ). $locale . '.css' ) ) {
