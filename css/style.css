@@ -412,23 +412,24 @@ body.newly-ancient #branding h1 a {
 	background:#D42629;
 }
 #stories-nav li.story1 a:hover {
-	background:#552955;
-}
-#stories-nav li.story1.active a {
-	background:#7A3B79;
-}
-#stories-nav li.story2 a:hover {
-	background:#173E64;
-}
-#stories-nav li.story2.active a {
-	background:#21588F;
-}
-#stories-nav li.story3 a:hover {
 	background:#336B32;
 }
-#stories-nav li.story3.active a {
+#stories-nav li.story1.active a {
 	background:#499948;
 }
+#stories-nav li.story2 a:hover {
+	background:#552955;
+}
+#stories-nav li.story2.active a {
+	background:#7A3B79;
+}
+#stories-nav li.story3 a:hover {
+	background:#173E64;
+}
+#stories-nav li.story3.active a {
+	background:#21588F;
+}
+
 /* *** Sidebar *** */
 div#sidebar {
 	float:left;
