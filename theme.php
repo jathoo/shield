@@ -70,10 +70,10 @@ class Shield extends Theme
 		Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/main.js', 'main',  array('jquery', 'ui', 'slider', 'miranda', 'dialog'));
 		
 		
-		// Add custom form controls
-		$this->add_template( 'commentcontrol_text', dirname(__FILE__) . '/commentcontrol_text.php' );
-		$this->add_template( 'commentcontrol_textarea', dirname(__FILE__) . '/commentcontrol_textarea.php' );
-		$this->add_template( 'commentcontrol_submit', dirname(__FILE__) . '/commentcontrol_submit.php' );
+		// Add custom form controls - do we still need these even?
+		// $this->add_template( 'commentcontrol_text', dirname(__FILE__) . '/commentcontrol_text.php' );
+		// $this->add_template( 'commentcontrol_textarea', dirname(__FILE__) . '/commentcontrol_textarea.php' );
+		// $this->add_template( 'commentcontrol_submit', dirname(__FILE__) . '/commentcontrol_submit.php' );
 	}
 	
 	/**
