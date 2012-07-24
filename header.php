@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
-	<title><?php Options::out( 'title' ) ?><?php if(isset($na_title)) { ?> &middot; <?php echo $na_title; ?><?php } ?></title>
+	<title>Test <?php Options::out( 'title' ) ?><?php if(isset($na_title)) { ?> &middot; <?php echo $na_title; ?><?php } ?></title>
 	<meta name="generator" content="Habari">
 	
 	<?php
@@ -31,12 +31,15 @@
 	<?php echo $theme->header(); ?>
 		
 </head>
-<body class="<?php echo $na_section . ' ' . Utils::slugify(Options::get('title')); ?>">
+<body class="<?php echo $shield_tags . ' ' . $na_section . ' ' . Utils::slugify(Options::get('title')); ?><?php if( $logo_image ): ?> logo<?php endif; ?>">
 <div id="grid_overlay">
 	<div class="grid">&nbsp;</div>
 </div>
 <div id="subscribe_box">
 	<p>There are three different feeds you can subscribe to, which correspond to the different types of content. <a id="feed_links" href="<?php echo $theme->feed('links'); ?>">Links</a> are short posts of one or two paragraphs which simply share an interesting link with brief commentary. <a id="feed_entries" href="<?php echo $theme->feed('entries'); ?>">Entries</a> are longer prose pieces of at least 300 words. If you subscribe to <a id="feed_all" href="<?php echo $theme->feed('all'); ?>">everything</a>, you&apos;ll get everything <em>I publish</em>, including approximately one entry and five links a week. Comments are not included in the everything feed. If you want to subscribe to comments, you can keep up with the conversation using the <a id="feed_comments" href="<?php echo $theme->feed('comments'); ?>">comments</a> feed.</p>
+</div>
+<div id="borders">
+&nbsp;
 </div>
 <div id="page">
 	<div id="header" class="section">
@@ -57,12 +60,16 @@
 		</div>
 		<div id="navigation">
 			<ol id="nav_main">
-				<?php // Utils::debug( $na_section ); ?>
+				<?php foreach( $shield_sections as $slug => $section ): ?>
+				<li class="<?php echo $slug; if( $section['active'] ): ?> active<?php endif; ?>"><a href="<?php echo $section['url']; ?>"><span><?php echo $section['title']; ?></span></a></li>
+				<?php endforeach; ?>
+				<?php if( 1 == 2 ): ?>
 				<li class="about first<?php if(isset($na_section) && $na_section == 'about') { echo ' active'; } ?>"><a href="<?php Site::out_url( 'habari' ); ?>/about" title="Find out who is responsible for this mess"><span>About</span></a></li>
 				<li class="archive<?php if(isset($na_section) && $na_section == 'archive') { echo ' active'; } ?>"><a href="<?php Site::out_url( 'habari' ); ?>/archive" title="Dig into the past"><span>Archive</span></a></li>
 				<li class="blog<?php if(isset($na_section) && $na_section == 'blog') { echo ' active'; } ?>"><a href="<?php Site::out_url( 'habari' ); ?>" title="Read my latest musings"><span>Blog</span></a></li>
 				<li class="life<?php if(isset($na_section) && $na_section == 'life') { echo ' active'; } ?>"><a href="<?php Site::out_url( 'habari' ); ?>/stream" title="Stalk me across the web, down a stream"><span>Life</span></a></li>
 				<li class="poetry last<?php if(isset($na_section) && $na_section == 'writing') { echo ' active'; } ?>"><a href="<?php Site::out_url( 'habari' ); ?>/writing" title="Explore my creative side"><span>Writing</span></a></li>
+				<?php endif; ?>
 			</ol>
 			<div id="spinner">Loading...</div>
 			<ol id="stories">

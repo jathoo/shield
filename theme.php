@@ -4,8 +4,10 @@ class Shield extends Theme
 {
 	var $defaults = array(
 		'show_9rules_badge' => false,
-		'background_image' => 'leaf'
-		
+		'background_image' => 'leaf',
+		'logo_image' => '',
+		'page_alignment' => 'left',
+		'footer_html' => '<a href="http://mastermade.us">Designed by <strong>MasterMade</strong></a><a href="http://habariproject.org">Powered by <strong>Habari</strong></a>'
 	);
 	
 	/**
@@ -28,16 +30,28 @@ class Shield extends Theme
 	
 		$ui->append( 'static', 'style', '<style type="text/css">#shield .formcontrol { line-height: 2.2em; }</style>');
 	
+		$ui->append( 'text', 'logo_image', __CLASS__.'__logo_image', _t( 'Logo image:'), 'optionscontrol_text' );
+		$ui->logo_image->helptext = _t( 'URL of logo to show in the header. Leave blank for none.' );		
+	
 		$ui->append( 'select', 'background_image', __CLASS__.'__background_image', _t( 'Background Image:'), 'optionscontrol_select', 'optionscontrol_select' );
 		$ui->background_image->options = array(
 			'flower' => _t('Flower'),
 			'leaf' => _t('Leaf')
 		);
 		$ui->background_image->helptext = _t( 'Greyscale image to show in the background.' );
+		
+		$ui->append( 'select', 'page_alignment', __CLASS__.'__page_alignment', _t( 'Page Alignment:'), 'optionscontrol_select', 'optionscontrol_select' );
+		$ui->page_alignment->options = array(
+			'left' => _t('Left'),
+			'center' => _t('Center')
+		);
+		$ui->page_alignment->helptext = _t( 'Where to align the functional portion of the page.' );
 	
 		$ui->append( 'checkbox', 'show_9rules_badge', __CLASS__.'__show_9rules_badge', _t( 'Show 9rules Badge:'), 'optionscontrol_checkbox' );
 		$ui->show_9rules_badge->helptext = _t( 'Check to display a 9rules badge in the header.' );
 	
+		$ui->append( 'text', 'footer_html', __CLASS__.'__footer_html', _t( 'Footer HTML:'), 'optionscontrol_text' );
+		$ui->footer_html->helptext = _t( 'Simple HTML message to display in footer, such as a license.' );
 	
 		// Save
 		$ui->append( 'submit', 'save', _t( 'Save' ) );
@@ -137,7 +151,22 @@ class Shield extends Theme
 		parent::add_template_vars();
 		
 		$opts = Options::get_group( __CLASS__ );
-			
+		
+		$tags = array();
+		
+		// Page alignment
+		$tags[] = $opts['page_alignment'];
+		
+		if( !isset( $opts['logo_image'] ) || $opts['logo_image'] == (false || null || '') )
+		{
+			$this->assign( 'logo_image', false );
+		}
+		else
+		{
+			$this->assign( 'logo_image', $opts['logo_image'] );
+		}
+		
+		$this->assign( 'footer_html', $opts['footer_html'] );
 		$this->assign( 'show_9rules_badge', $opts['show_9rules_badge'] );
 		$this->assign( 'background_image', $opts['background_image'] );
 		
@@ -152,10 +181,6 @@ class Shield extends Theme
 			$i++;
 		}
 		$this->assign( 'stories', $stories );
-		
-		// Use theme options to set values that can be used directly in the templates
-		$opts = Options::get_group( __CLASS__ );
-		
 		
 		$locale = Options::get( 'locale' );
 		if ( file_exists( Site::get_dir( 'theme', true ). $locale . '.css' ) ) {
@@ -173,9 +198,28 @@ class Shield extends Theme
 		} else {
 			$this->assign( 'ajax', false );
 		}
-
-		// Utils::debug( $this );
 		
+		// Build sections
+		$sections = array();
+		
+		$sections['blog'] = array(
+			'title' => 'Blog',
+			'url' => Site::get_url( 'habari' ),
+			'active' => false
+		);
+		
+		$pages = Posts::get( array( 'vocabulary' => array( 'tags:term' => 'navmenu' ), 'limit' => 4 ) );
+		
+		foreach( $pages as $page )
+		{
+			$sections[$page->slug] = array(
+				'title' => $page->title,
+				'url' => $page->permalink,
+				'page' => $page,
+				'active' => false
+			);
+		}
+				
 		if(is_object($this->request)) {
 			foreach($this->request as $name => $status) {
 				if($status == TRUE) {
@@ -190,7 +234,7 @@ class Shield extends Theme
 		// 		
 		
 		$this->assign( 'request', $request );
-				
+		
 		switch($request) {
 			case 'display_page':
 				if(  $this->post->tags->has('meta') ) {
@@ -289,6 +333,8 @@ class Shield extends Theme
 				break;
 		}
 		
+		$this->assign( 'shield_tags', implode( $tags ) );
+		$this->assign( 'shield_sections', $sections );
 		$this->assign( 'na_section', $na_section );
 		$this->assign( 'na_title', $na_title );
 		
