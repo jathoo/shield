@@ -7,9 +7,9 @@
 	<author url="http://morgante.net/">Morgante Pell</author>
 	<author url="http://habariproject.org/">The Habari Community</author>
 	
-	<version>0.1</version>
+	<version>1.0</version>
 	<url>http://lab.morgante.net/shield</url>
-	<description><![CDATA[shield is a grid-based theme designed specifically for Habari.]]></description>
+	<description><![CDATA[Shield is a grid-based theme designed specifically for Habari.]]></description>
 
 	<copyright>2012</copyright>
 	
@@ -23,5 +23,14 @@
 			<description><![CDATA[Story handler in header]]></description>
 		</area>
 	</areas>
+	
+	<help>
+		<value><![CDATA[
+			<p>If you are seeing error messages, be sure to configure the theme settings.</p>
+			<p>The stories slider in the top right of the header is constructed by creating <em>story</em> blocks and then putting them into the <em>stories</em> area.</p>
+			<p>The header navigation bar is created by finding pages tagged <code>navmenu</code>. So, to add a page to the navigation bar, just tag it <em>navmenu</em>.</p>
+		]]></value>
+	</help>
+	
 	
 </pluggable>

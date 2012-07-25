@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
-	<title>Test <?php Options::out( 'title' ) ?><?php if(isset($na_title)) { ?> &middot; <?php echo $na_title; ?><?php } ?></title>
+	<title><?php Options::out( 'title' ) ?><?php if(isset($na_title)) { ?> &middot; <?php echo $na_title; ?><?php } ?></title>
 	<meta name="generator" content="Habari">
 	
 	<?php
@@ -35,16 +35,18 @@
 <div id="grid_overlay">
 	<div class="grid">&nbsp;</div>
 </div>
-<div id="subscribe_box">
-	<p>There are three different feeds you can subscribe to, which correspond to the different types of content. <a id="feed_links" href="<?php echo $theme->feed('links'); ?>">Links</a> are short posts of one or two paragraphs which simply share an interesting link with brief commentary. <a id="feed_entries" href="<?php echo $theme->feed('entries'); ?>">Entries</a> are longer prose pieces of at least 300 words. If you subscribe to <a id="feed_all" href="<?php echo $theme->feed('all'); ?>">everything</a>, you&apos;ll get everything <em>I publish</em>, including approximately one entry and five links a week. Comments are not included in the everything feed. If you want to subscribe to comments, you can keep up with the conversation using the <a id="feed_comments" href="<?php echo $theme->feed('comments'); ?>">comments</a> feed.</p>
-</div>
 <div id="borders">
 &nbsp;
 </div>
 <div id="page">
 	<div id="header" class="section">
 		<div id="branding">
-			<h1><a href="<?php Site::out_url( 'habari' ); ?>" title="Pick up your heart at home"><?php if( Options::get( 'title' ) == 'Newly Ancient'): ?><span class="newly">Newly</span> <span class="ancient">Ancient</span><?php else: Options::out( 'title' ); endif; ?></a></h1>
+			<h1>
+				<a href="<?php Site::out_url( 'habari' ); ?>" title="Pick up your heart at home">
+				<?php if( $logo_image ): ?><img src="<?php echo $logo_image; ?>" /><?php endif; ?>
+				<?php if( Options::get( 'title' ) == 'Newly Ancient'): ?><span class="newly">Newly</span> <span class="ancient">Ancient</span><?php else: Options::out( 'title' ); endif; ?>
+				</a>
+			</h1>
 			<div class="box">
 				<?php if($show_9rules_badge): ?><a class="ninerules" href="http://9rules.com" title="I am a member of the 9rules blog community">9rules</a><?php endif; ?>
 				<a class="subscribe" href="<?php echo $theme->feed('all'); ?>" title="Subscribe to latest posts">Subscribe</a>

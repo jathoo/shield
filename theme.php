@@ -85,9 +85,9 @@ class Shield extends Theme
 		
 		
 		// Add custom form controls - do we still need these even?
-		// $this->add_template( 'commentcontrol_text', dirname(__FILE__) . '/commentcontrol_text.php' );
-		// $this->add_template( 'commentcontrol_textarea', dirname(__FILE__) . '/commentcontrol_textarea.php' );
-		// $this->add_template( 'commentcontrol_submit', dirname(__FILE__) . '/commentcontrol_submit.php' );
+		$this->add_template( 'commentcontrol_text', dirname(__FILE__) . '/commentcontrol_text.php' );
+		$this->add_template( 'commentcontrol_textarea', dirname(__FILE__) . '/commentcontrol_textarea.php' );
+		$this->add_template( 'commentcontrol_submit', dirname(__FILE__) . '/commentcontrol_submit.php' );
 	}
 	
 	/**
@@ -249,12 +249,12 @@ class Shield extends Theme
 												
 				$na_title = $this->post->title;
 				break;
-			// case 'display_post':
-			// case 'display_link':
-			// case 'display_entry':
-			// 	$theme->na_section= 'blog';
-			// 	$theme->na_title= $theme->post->title;
-			// 	break;
+			case 'display_post':
+			case 'display_link':
+			case 'display_entry':
+				$na_section= 'blog';
+				$na_title= $this->post->title;
+				break;
 			// case 'display_entries_by_date':
 			// 	$theme->na_section= 'blog';
 			// 	$theme->na_title= NULL;
@@ -407,13 +407,15 @@ class Shield extends Theme
 	 * TODO: this needs to be generalized somehow
 	 */
 	public static function feed($type) {
-		$base= 'http://feedproxy.google.com/newlyancient/';
 		
-		if($type == 'all') {
-			$type= 'full';
+		switch( $type )
+		{
+			case 'comments':
+				return URL::get( 'atom_feed_comments' );
+			default:
+				return URL::get( 'atom_feed', array( 'index' => '1' ) );
 		}
-		
-		return $base . $type;
+
 	}
 		
 	// /**

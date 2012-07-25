@@ -163,11 +163,26 @@ body.center #page {	margin-left: 50%;
 	line-height:70%;
 	float:left;
 }
-#branding h1 a, #branding h1 a:link, #branding h1 a:visited {
+#branding h1 a {
 	display:block;
 	padding:111px 159px 0 10px;
-	color:#000000;
 	float:left;
+	position: relative;
+}
+
+#branding h1 a, #branding h1 a:link, #branding h1 a:visited {
+	color:#000000;
+}
+
+body.logo #branding h1 a {
+	padding-left: 169px;
+}
+
+body.logo #branding h1 a img {
+	width: 140px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
 }
 
 #branding h1 a span.newly {

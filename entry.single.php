@@ -174,7 +174,7 @@ $theme->display('header');
 					else: ?><p>Respond to this entry with your remarkable insights.</p><? endif; ?></div>
 				</div>
 				<?php
-				$post->comment_form()->out();
+				echo $post->comment_form()->out();
 				?>
 			</div>
 			<div class="pager entry single">

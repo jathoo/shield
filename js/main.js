@@ -175,54 +175,6 @@ var search= {
 	}
 }
 
-var feeds= {
-	init: function() {
-		feeds.link= $('#branding div.box a.subscribe');
-		feeds.box= $('#subscribe_box');
-				
-		feeds.link.click(function() {
-			feeds.open();
-			return false;
-		});
-	},
-	open: function() {
-		feeds.box.show();
-		
-		feeds.box.dialog({
-			modal: true,
-			bgiframe: true,
-			height: 275,
-			width: 500,			
-			title: "Feed Subscription",
-			buttons: {
-				"Everything": function() {
-					window.location = $('#feed_all').attr('href');
-				},
-				"Links": function() {
-					window.location = $('#feed_links').attr('href');
-				},
-				"Entries": function() {
-					window.location = $('#feed_entries').attr('href');
-				},
-				"Comments": function() {
-					window.location = $('#feed_comments').attr('href');
-				},
-				"Cancel": function() {
-					$(this).dialog("close");
-				}
-			},
-			open: function(event, ui) {
-				$('.ui-dialog-overlay').animate({
-					opacity: 0.7
-				}, "fast");
-			}
-			
-		});
-		
-		return;
-	}
-}
-
 // SPINNER
 var spinner = {
 	start: function() {
