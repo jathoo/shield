@@ -1,5 +1,5 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die( 'No direct access' ); } ?>
-<div class="module recent entries">
+<div class="module recent posts entries">
 	<h3><?php echo $content->title; ?></h3>
 	<a class="feed" href="<?php echo $theme->feed('entries'); ?>" title="Atom feed of latest entires"></a>
 	<ol class="items entries">

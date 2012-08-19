@@ -934,25 +934,25 @@ div#module-activity li.item a.up4 span.bar {
 div#module-activity li.item a.up5 span.bar {
 	background:#000000;
 }
-/* ==latest entries== */
-div.module.entries li.item, div#module-links li.item {
+/* ==latest posts== */
+div.module.posts li.item, div#module-links li.item {
 	padding:2px 0;
 	position:relative;
 	float:left;
 	width:300px;
 }
-div.module.entries a.permalink, div#module-links li.item a.permalink {
+div.module.posts a.permalink, div#module-links li.item a.permalink {
 	display:block;
 	float: left;
 	font-size:109%;
 	cursor: pointer;
 }
-div.module.entries li.item a span.title, div#module-links li.item a span.title {
+div.module.posts li.item a span.title, div#module-links li.item a span.title {
 	display:block;
 	float:left;
 	width:230px;
 }
-div.module.entries li.item a span.date, div#module-links li.item a span.date {
+div.module.posts li.item a span.date, div#module-links li.item a span.date {
 	display:block;
 	float:left;
 	margin-left:10px;
@@ -962,14 +962,14 @@ div.module.entries li.item a span.date, div#module-links li.item a span.date {
 	top:0;
 	left:230px;
 }
-div.module.entries li.item a.permalink:hover, div.module.entries li.item a.permalink:hover span.date, div#module-links li.item a.permalink:hover, div#module-links li.item a.permalink:hover span.date {
+div.module.posts li.item a.permalink:hover, div.module.posts li.item a.permalink:hover span.date, div#module-links li.item a.permalink:hover, div#module-links li.item a.permalink:hover span.date {
 	text-decoration:none;
 	color: #D42629;
 }
-div.module.entries li.item a.permalink:hover span.title, div#module-links li.item a.permalink:hover span.title {
+div.module.posts li.item a.permalink:hover span.title, div#module-links li.item a.permalink:hover span.title {
 	text-decoration:underline;
 }
-div.module.entries a.comments.count, div#module-links li.item a.link {
+div.module.posts a.comments.count, div#module-links li.item a.link {
 	display:block;
 	width:20px;
 	color:#333333;
@@ -978,10 +978,21 @@ div.module.entries a.comments.count, div#module-links li.item a.link {
 	right:0;
 	top:-2px;
 }
-div.module.entries a.comments.count:hover, div#module-links li.item a.link:hover {
+div.module.posts a.comments.count:hover, div#module-links li.item a.link:hover {
 	font-weight: bold;
 	color: #D42629;
 }
+/* ==microposts */
+div.module.microposts li .content {
+	font-size: 140%;
+}
+
+div#sidebar div.module.microposts li a.permalink {
+	float: right;
+	font-weight: normal;
+	color: #999;
+}
+
 /* blogroll */
 div#module-blogroll li.item.link {
 	display:block;

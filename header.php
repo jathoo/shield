@@ -22,10 +22,6 @@
 	
 	<link rel="icon" type="image/ico" href="<?php Site::out_url( 'habari' ); ?>/favicon.ico" />
 	
-	<style type="text/css" media="screen">
-		
-	</style>
-	
 	<?php echo $theme->header(); ?>
 		
 </head>
