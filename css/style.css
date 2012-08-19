@@ -500,7 +500,7 @@ div#sidebar div.module h3 span.legend a:hover {
 div#sidebar div.module h3 span.legend a:hover strong {
 	text-decoration:underline;
 }
-div#sidebar div.module a.feed, div#sidebar div.module h3 span.icon {
+div#sidebar div.module a.feed, div#sidebar div.module a.info, div#sidebar div.module h3 span.icon {
 	display:block;
 	width:16px;
 	height:1.5em;
@@ -513,8 +513,11 @@ div#sidebar div.module a.feed, div#sidebar div.module h3 span.icon {
 div#sidebar div.module a.feed:hover {
 	background-image:url('../images/feed-mini-orange.png');
 }
-div#sidebar div.module span.icon.info {
+div#sidebar div.module span.icon.info, div#sidebar div.module a.info {
 	background-image:url('../images/info-grey.png');
+}
+div#sidebar div.module a.info:hover {
+	background-image:url('../images/info.png');	
 }
 div#sidebar div.module span.icon.stats {
 	background-image:url('../images/chart-grey.png');
@@ -983,6 +986,10 @@ div.module.posts a.comments.count:hover, div#module-links li.item a.link:hover {
 	color: #D42629;
 }
 /* ==microposts */
+div#sidebar div.module.microposts a.info {
+	right: 30px;
+}
+
 div.module.microposts li .content {
 	font-size: 140%;
 }

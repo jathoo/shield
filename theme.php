@@ -553,6 +553,32 @@ class Shield extends Theme
 	// 	}
 	// 	$block->menus = $menus;
 	// }
+	
+	/**
+	 * Include our special scopes 
+	 **/
+	public function filter_get_scopes($scopes)
+	{
+		$our_scopes = array(
+			array(
+				'name' => 'micropost.multiple',
+				'criteria' => array()
+			)
+		);
+
+		$scopeid = 93200; // starting ID
+		foreach($our_scopes as $our_scope) {
+			$scope = new StdClass();
+			$scope->id = $scopeid++;
+			$scope->name = $our_scope['name'];
+			$scope->priority = 15; // Make this configurable
+
+			$scope->criteria = $our_scope['criteria'];
+			$scopes[] = $scope;
+		}
+
+		return $scopes;
+	}
 
 }
 ?>
