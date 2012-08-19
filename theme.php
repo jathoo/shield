@@ -73,15 +73,16 @@ class Shield extends Theme
 	public function action_init_theme () {
 		
 		// Stack::add( 'template_stylesheet', array( Site::get_url('theme') . '/css/style.css', 'screen' ), 'style' );
-		Stack::add( 'template_stylesheet', array( Site::get_url('theme') . '/jtheme/ui.all.css', 'screen' ), 'jtheme', array('style'));
-		Stack::add( 'template_stylesheet', array( Site::get_url('theme') . '/css/style.css', 'screen' ), 'style' );
+		Stack::add( 'template_stylesheet', array( $this->get_url('/css/style.css'), 'screen' ), 'style' );
+		Stack::add( 'template_stylesheet', array( $this->get_url('jtheme/ui.all.css'), 'screen' ), 'jtheme', array('style'));
+		Stack::add( 'template_stylesheet', array( 'body { background-image: url(\'' . $this->get_url('/images/backgrounds/' . Options::get('Shield__background_image') . '_1.jpg') . '\')}', 'screen' ), 'background', array('style'));
+		
+		// $opts['background_image']
 		
 		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery-ui.min.js', 'ui', array('jquery') );
-		// Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/ui.slider.js', 'slider', array('jquery', 'ui') );
-		// Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/ui.dialog.js', 'dialog',  array('jquery', 'ui'));
-		Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/miranda.js', 'dialog',  array('jquery', 'ui', 'miranda'));
-		Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/main.js', 'main',  array('jquery', 'ui', 'slider', 'miranda', 'dialog'));
+		Stack::add( 'template_header_javascript', $this->get_url('/js/miranda.js'), 'dialog',  array('jquery', 'ui', 'miranda'));
+		Stack::add( 'template_header_javascript', $this->get_url('/js/main.js'), 'main',  array('jquery', 'ui', 'slider', 'miranda', 'dialog'));
 		
 		
 		// Add custom form controls - do we still need these even?
@@ -168,7 +169,6 @@ class Shield extends Theme
 		
 		$this->assign( 'footer_html', $opts['footer_html'] );
 		$this->assign( 'show_9rules_badge', $opts['show_9rules_badge'] );
-		$this->assign( 'background_image', $opts['background_image'] );
 		
 		$this->assign( 'loggedin', User::identify()->loggedin );
 		

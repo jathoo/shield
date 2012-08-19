@@ -23,9 +23,7 @@
 	<link rel="icon" type="image/ico" href="<?php Site::out_url( 'habari' ); ?>/favicon.ico" />
 	
 	<style type="text/css" media="screen">
-		body {
-			background:#FFFFFF url('<?php echo Site::get_url('theme'); ?>/images/backgrounds/<?php echo $background_image; ?>_1.jpg') fixed no-repeat right bottom;
-		}
+		
 	</style>
 	
 	<?php echo $theme->header(); ?>
