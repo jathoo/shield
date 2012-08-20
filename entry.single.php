@@ -42,6 +42,7 @@ $theme->display('header');
 						on this post. Add <a class="comment add" href="<?php echo $post->permalink; ?>#respond" title="Add a comment to this post">yours</a>.
 					</div>
 				</div>
+				<?php if( count( $post->tags ) > 0 ): ?>
 				<div class="field tags info">
 					<div class="label"><?php echo _n( 'Tag', 'Tags', count($post->tags) ); ?></div>
 					<div class="value">
@@ -51,6 +52,7 @@ $theme->display('header');
 						</ul>
 					</div>
 				</div>
+				<?php endif; ?>
 				
 				<?php if( $type == 'link' ): ?>
 				<div class="field visit link info">
